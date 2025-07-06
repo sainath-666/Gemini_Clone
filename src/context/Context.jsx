@@ -13,6 +13,9 @@ const ContextProvided = (props) => {
     const [resultData,setResultData] = useState("");
 
 
+    const delayPara = (index,nextWord) => {
+
+    }
 
   const onSent = async (prompt) => {
 
@@ -20,8 +23,19 @@ const ContextProvided = (props) => {
     setLoading(true)
     setShowResult(true)
     setRecentPrompt(input)
-    const response = await runChat(input);
-    setResultData(response)
+    const response = await runChat(input)
+    let responseArray = response.split("**");
+    let newResponse ;
+    for(let i = 0 ; i < responseArray.length; i++)
+    {
+        if (i === 0 || i%2 !== 1){
+            newResponse += responseArray[i];
+        }
+        else{
+            newResponse += "<b>"+responseArray[i]+"</b>";
+        }
+    }
+    setResultData(newResponse)
     setLoading(false)
     setInput("")
 
