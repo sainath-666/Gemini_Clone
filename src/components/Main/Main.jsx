@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import "./Main.css"; // Assuming you have a CSS file for styling
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
@@ -12,7 +12,15 @@ const Main = () => {
     resultData,
     setInput,
     input,
+    error,
   } = useContext(Context);
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (!showResult && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [showResult]);
 
   return (
     <div className="main">
@@ -22,6 +30,7 @@ const Main = () => {
       </div>
 
       <div className="main-container">
+        {error && <div className="error-message">{error}</div>}
         {!showResult ? (
           <>
             <div className="greet">
@@ -74,15 +83,28 @@ const Main = () => {
         <div className="main-bottom">
           <div className="search-box">
             <input
+              ref={inputRef}
               onChange={(e) => setInput(e.target.value)}
               value={input}
               type="text"
               placeholder="Enter prompt here"
+              disabled={loading}
+              autoFocus
             />
             <div>
-              <img src={assets.gallery_icon} alt="" />
-              <img src={assets.mic_icon} alt="" />
-              {input?<img onClick={() => onSent()} src={assets.send_icon} alt="" />:null}
+              <img src={assets.gallery_icon} alt="Gallery" tabIndex={0} aria-label="Open gallery" className="interactive-icon" />
+              <img src={assets.mic_icon} alt="Mic" tabIndex={0} aria-label="Start voice input" className="interactive-icon" />
+              {input ? (
+                <img
+                  onClick={() => !loading && onSent()}
+                  src={assets.send_icon}
+                  alt="Send"
+                  style={{ opacity: loading ? 0.5 : 1, cursor: loading ? "not-allowed" : "pointer" }}
+                  tabIndex={0}
+                  aria-label="Send prompt"
+                  className="interactive-icon"
+                />
+              ) : null}
             </div>
           </div>
           <p className="bottom-info">

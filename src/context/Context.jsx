@@ -10,6 +10,7 @@ const ContextProvided = (props) => {
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState("");
+  const [error, setError] = useState(""); // Add error state
 
   const delayPara = (index, nextWord) => {
     setTimeout(function () {
@@ -24,36 +25,42 @@ const ContextProvided = (props) => {
   }
 
   const onSent = async (prompt) => {
+    setError(""); // Reset error
     setResultData("");
     setLoading(true);
     setShowResult(true);
     let response;
-    if (prompt !== undefined){
-      response = await runChat(prompt);
-      setRecentPrompt(prompt)
-    }
-    else {
-      setPrevPrompts(prev=>[...prev,input])
-      setRecentPrompt(input)
-      response = await runChat(input)
-    }
-    let responseArray = response.split("**");
-    let newResponse="";
-    for (let i = 0; i < responseArray.length; i++) {
-      if (i === 0 || i % 2 !== 1) {
-        newResponse += responseArray[i];
-      } else {
-        newResponse += "<b>" + responseArray[i] + "</b>";
+    try {
+      if (prompt !== undefined) {
+        response = await runChat(prompt);
+        setRecentPrompt(prompt)
       }
+      else {
+        setPrevPrompts(prev => [...prev, input])
+        setRecentPrompt(input)
+        response = await runChat(input)
+      }
+      let responseArray = response.split("**");
+      let newResponse = "";
+      for (let i = 0; i < responseArray.length; i++) {
+        if (i === 0 || i % 2 !== 1) {
+          newResponse += responseArray[i];
+        } else {
+          newResponse += "<b>" + responseArray[i] + "</b>";
+        }
+      }
+      let newResponse2 = newResponse.split("*").join("</br>");
+      let newRespomseArray = newResponse2.split(" ");
+      for (let i = 0; i < newRespomseArray.length; i++) {
+        const nextWord = newRespomseArray[i];
+        delayPara(i, nextWord + " ");
+      }
+      setLoading(false);
+      setInput("");
+    } catch (err) {
+      setError("Sorry, something went wrong. Please try again.");
+      setLoading(false);
     }
-    let newResponse2 = newResponse.split("*").join("</br>");
-    let newRespomseArray = newResponse2.split(" ");
-    for (let i = 0; i < newRespomseArray.length; i++) {
-      const nextWord = newRespomseArray[i];
-      delayPara(i, nextWord+" ");
-    }
-    setLoading(false);
-    setInput("");
   };
 
   const contextValue = {
@@ -67,7 +74,9 @@ const ContextProvided = (props) => {
     resultData,
     input,
     setInput,
-    newChat
+    newChat,
+    error,
+    setError
   };
 
   return (
