@@ -48,12 +48,18 @@ const PromptInput: React.FC<PromptInputProps> = ({ onSend, isLoading }) => {
         <button
           onClick={handleSend}
           disabled={!inputValue.trim() || isLoading}
+          aria-label={isLoading ? "Sending message..." : "Send message"}
+          title={isLoading ? "Sending message..." : "Send message"}
           className="ml-3 p-2 rounded-full bg-neutral-700 disabled:bg-neutral-800 disabled:text-neutral-600 text-neutral-200 hover:bg-neutral-600 transition-colors"
         >
           {isLoading ? (
-            <div className="w-5 h-5 border-2 border-neutral-500 border-t-neutral-200 rounded-full animate-spin"></div>
+            <div
+              className="w-5 h-5 border-2 border-neutral-500 border-t-neutral-200 rounded-full animate-spin"
+              role="status"
+              aria-label="Loading"
+            ></div>
           ) : (
-            <SendIcon className="w-6 h-6" />
+            <SendIcon className="w-6 h-6" aria-hidden="true" />
           )}
         </button>
       </div>

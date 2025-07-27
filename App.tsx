@@ -60,7 +60,7 @@ const App: React.FC = () => {
       }
       chat = chatInstances[currentSessionId] || createChat();
       if (!chatInstances[currentSessionId]) {
-        setChatInstances(prev => ({...prev, [currentSessionId]: chat}));
+        setChatInstances(prev => ({...prev, [String(currentSessionId)]: chat}));
       }
       setSessions(prev => prev.map(s => s.id === currentSessionId ? {...s, messages: [...s.messages, userMessage]} : s));
     }
