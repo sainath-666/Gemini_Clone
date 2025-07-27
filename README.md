@@ -1,19 +1,19 @@
-# 🤖 Gemini Clone
+# 🤖 Gem- **🤖 AI-Powered Chat**: Integrated with Google's GenAI API for intelligent conversations
 
 A modern, responsive web application that replicates the Google Gemini AI interface, built with React and Vite. This project provides a clean, intuitive chat interface powered by Google's Generative AI API.
 
-![Gemini Clone Screenshot](src/assets/preview.png)
+![Gemini Clone Screenshot](./public/preview.png)
 
 ## ✨ Features
 
-- **🤖 AI-Powered Chat**: Integrated with Google's Gemini 2.5 Pro model for intelligent conversations
+- **🤖 AI-Powered Chat**: Integrated with Google's GenAI API for intelligent conversations
 - **💬 Real-time Messaging**: Instant responses with loading states and error handling
+- **📝 Markdown Support**: Full markdown rendering with GitHub Flavored Markdown
 - **📱 Responsive Design**: Beautiful, modern UI that works on desktop and mobile devices
-- **🔄 Chat History**: Persistent conversation history with easy access to previous prompts
+- **🔄 Chat History**: Sidebar with easy access to chat history
 - **🎨 Modern Interface**: Clean, intuitive design inspired by Google's Gemini interface
-- **⚡ Fast Performance**: Built with Vite for lightning-fast development and build times
-- **🔒 Safety Settings**: Built-in content safety filters and moderation
-- **♿ Accessibility**: Keyboard navigation and screen reader support
+- **⚡ Fast Performance**: Built with Vite and React 19 for optimal performance
+- **🎯 TypeScript**: Full TypeScript support for better development experience
 
 ## 🚀 Quick Start
 
@@ -26,35 +26,40 @@ A modern, responsive web application that replicates the Google Gemini AI interf
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/sainath-666/gemini-clone.git
    cd gemini-clone
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up your API key**
-   
+
    Create a `.env` file in the root directory:
+
    ```env
    VITE_GEMINI_API=your_gemini_api_key_here
    ```
 
    To get your API key:
+
    - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
    - Create a new API key
    - Copy the key to your `.env` file
 
 4. **Start the development server**
+
    ```bash
    npm run dev
    ```
 
 5. **Open your browser**
-   
+
    Navigate to `http://localhost:5173` to see the application running.
 
 ## 🛠️ Available Scripts
@@ -67,37 +72,46 @@ A modern, responsive web application that replicates the Google Gemini AI interf
 ## 📁 Project Structure
 
 ```
-gemini-clone/
-├── public/                 # Static assets
-├── src/
-│   ├── assets/            # Images and icons
-│   ├── components/        # React components
-│   │   ├── Main/         # Main chat interface
-│   │   └── Sidebar/      # Navigation sidebar
-│   ├── config/           # API configuration
-│   ├── context/          # React context for state management
-│   ├── App.jsx           # Main application component
-│   └── main.jsx          # Application entry point
-├── package.json
-└── README.md
+src/
+├── components/           # React components
+│   ├── ChatView.tsx     # Main chat interface
+│   ├── icons.tsx        # Icon components
+│   ├── Message.tsx      # Individual message component
+│   ├── PromptInput.tsx  # User input component
+│   ├── Sidebar.tsx      # Chat history sidebar
+│   └── WelcomeView.tsx  # Welcome screen component
+├── services/            # External services
+│   └── geminiService.ts # Google GenAI integration
+└── styles/             # CSS styles
+    └── main.css        # Global styles with Tailwind
 ```
 
 ## 🔧 Configuration
 
-### API Configuration
+### Development
 
-The application uses Google's Generative AI API. Key configuration options in `src/config/gemini.js`:
+The application is built with modern web technologies and follows best practices:
 
-- **Model**: Gemini 2.5 Pro
-- **Temperature**: 0.9 (creativity level)
-- **Max Output Tokens**: 2048
-- **Safety Settings**: Medium threshold for all harm categories
+- **TypeScript**: Full type safety throughout the application
+- **Component Structure**: Modular and reusable React components
+- **Styling**: Tailwind CSS for responsive and maintainable styles
+- **API Integration**: Google's GenAI SDK for AI interactions
+- **Performance**: Vite for fast development and optimized builds
 
 ### Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `VITE_GEMINI_API` | Your Google Gemini API key | Yes |
+| Variable              | Description            | Required |
+| --------------------- | ---------------------- | -------- |
+| `VITE_GOOGLE_API_KEY` | Your Google AI API key | Yes      |
+
+## Tech Stack
+
+- React 19.1.0
+- TypeScript 5.7.2
+- Vite 6.2.0
+- Tailwind CSS 4.1.11
+- @google/genai 1.11.0
+- React Markdown 9.0.1
 
 ## 🎯 Usage
 
@@ -109,11 +123,13 @@ The application uses Google's Generative AI API. Key configuration options in `s
 ## 🎨 UI Components
 
 ### Main Interface
+
 - **Greeting Section**: Welcome message with suggested prompts
 - **Chat Area**: Real-time conversation display
 - **Input Section**: Text input with send, gallery, and microphone buttons
 
 ### Sidebar
+
 - **Menu Toggle**: Expandable sidebar navigation
 - **New Chat**: Start fresh conversations
 - **Recent Chats**: Access previous conversations
@@ -179,6 +195,7 @@ If you encounter any issues or have questions:
 ## 🔄 Changelog
 
 ### Version 0.0.0
+
 - Initial release
 - Basic chat functionality
 - Responsive design
