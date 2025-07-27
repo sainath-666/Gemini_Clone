@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Chat } from "@google/genai";
-import { createChat } from './services/geminiService';
-import Sidebar from './components/Sidebar';
-import ChatView from './components/ChatView';
+import { createChat } from './src/services/geminiService';
+import Sidebar from './src/components/Sidebar';
+import ChatView from './src/components/ChatView';
 import { ChatSession, Message, MessageSender } from './types';
 
 const App: React.FC = () => {

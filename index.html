@@ -3,121 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gemini Clone</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* For custom scrollbars */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #1e1f20;
-      }
-      ::-webkit-scrollbar-thumb {
-        background-color: #4a4a4a;
-        border-radius: 10px;
-        border: 2px solid #1e1f20;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background-color: #5a5a5a;
-      }
+    <link rel="android-chrome-192x192.png" href="/android-chrome-192x192.png" />
+    <link rel="android-chrome-512x512.png" href="/android-chrome-512x512.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="favicon-16x16.png" href="/favicon-16x16.png" />
+    <link rel="favicon-32x32.png" href="/favicon-32x32.png" />
 
-      /* For markdown rendering */
-      .markdown-content {
-        color: #d1d5db; /* text-neutral-300 */
-        line-height: 1.7;
-        text-align: left;
-      }
-      .markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4, .markdown-content h5, .markdown-content h6 {
-        font-weight: 600;
-        margin-top: 1.25em;
-        margin-bottom: 0.5em;
-        color: #f9fafb; /* text-neutral-100 */
-      }
-      .markdown-content h1 { font-size: 1.875rem; }
-      .markdown-content h2 { font-size: 1.5rem; }
-      .markdown-content h3 { font-size: 1.25rem; }
-      .markdown-content p {
-        margin-bottom: 1em;
-      }
-      .markdown-content ul, .markdown-content ol {
-        margin-bottom: 1em;
-        padding-left: 2em;
-      }
-      .markdown-content ul { list-style-type: disc; }
-      .markdown-content ol { list-style-type: decimal; }
-      .markdown-content li { margin-bottom: 0.25em; }
-      .markdown-content a {
-        color: #93c5fd; /* text-blue-300 */
-        text-decoration: underline;
-        transition: color 0.2s;
-      }
-      .markdown-content a:hover {
-        color: #60a5fa; /* text-blue-400 */
-      }
-      .markdown-content code {
-        background-color: #131314;
-        color: #e5e7eb;
-        padding: 0.2em 0.4em;
-        margin: 0;
-        font-size: 85%;
-        border-radius: 6px;
-        border: 1px solid #374151; /* border-neutral-700 */
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      }
-      .markdown-content pre {
-        background-color: #131314;
-        border: 1px solid #374151; /* border-neutral-700 */
-        padding: 1em;
-        border-radius: 8px;
-        overflow-x: auto;
-        margin-bottom: 1em;
-      }
-      .markdown-content pre code {
-        background-color: transparent;
-        border: none;
-        padding: 0;
-      }
-      .markdown-content blockquote {
-        border-left: 4px solid #4b5563; /* border-neutral-600 */
-        padding-left: 1em;
-        color: #9ca3af; /* text-neutral-400 */
-        margin-bottom: 1em;
-        font-style: italic;
-      }
-       .markdown-content table {
-        width: 100%;
-        margin-bottom: 1em;
-        border-collapse: collapse;
-      }
-      .markdown-content th, .markdown-content td {
-        border: 1px solid #4b5563; /* border-neutral-600 */
-        padding: 0.5em 1em;
-      }
-      .markdown-content th {
-        background-color: #374151; /* bg-neutral-700 */
-        font-weight: 600;
-      }
-      .markdown-content hr {
-        border-top: 1px solid #4b5563; /* border-neutral-600 */
-        margin: 2em 0;
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.1.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.11.0",
-    "react-markdown": "https://esm.sh/react-markdown@^9.0.1",
-    "remark-gfm": "https://esm.sh/remark-gfm@^4.0.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+    <title>Gemini Clone - AI Chat Assistant</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Gemini Clone - AI Chat Assistant" />
+    <meta
+      name="description"
+      content="An interactive AI chat assistant powered by Google's Gemini technology. Experience smart conversations, code assistance, and creative content generation."
+    />
+    <meta
+      name="keywords"
+      content="Gemini, AI, artificial intelligence, chat assistant, Google AI, code assistant, content generation"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gemini Clone - AI Chat Assistant" />
+    <meta
+      property="og:description"
+      content="An interactive AI chat assistant powered by Google's Gemini technology. Experience smart conversations, code assistance, and creative content generation."
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Gemini Clone - AI Chat Assistant" />
+    <meta
+      property="twitter:description"
+      content="An interactive AI chat assistant powered by Google's Gemini technology. Experience smart conversations, code assistance, and creative content generation."
+    />
+
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="sainath-666" />
+    <meta name="theme-color" content="#131314" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
   <body class="bg-[#131314]">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>

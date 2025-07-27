@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Message, MessageSender } from '../types';
+import { Message, MessageSender } from '../../types';
 import { UserIcon, GeminiIcon } from './icons';
 
 interface MessageProps {
@@ -19,7 +19,7 @@ const MessageComponent: React.FC<MessageProps> = ({ message }) => {
   return (
     <div className={`flex items-start gap-4 py-6 ${isUser ? 'flex-row-reverse' : ''}`}>
       <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${isUser ? 'bg-blue-600' : 'bg-transparent'}`}>
-        {isUser ? <UserIcon className="w-6 h-6 text-white" /> : <GeminiIcon className="w-8 h-8" />}
+        {isUser ? <UserIcon className="w-6 h-6 text-white" /> : <GeminiIcon className='h-4' />}
       </div>
       <div className="flex-grow">
         <div className={`font-bold text-neutral-200 mb-1 ${isUser ? 'text-right' : 'text-left'}`}>

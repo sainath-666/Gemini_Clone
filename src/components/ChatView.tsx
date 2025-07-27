@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { ChatSession, Message } from '../types';
+import { ChatSession } from '../../types';
 import MessageComponent from './Message';
 import PromptInput from './PromptInput';
 import WelcomeView from './WelcomeView';
@@ -40,7 +40,7 @@ const ChatView: React.FC<ChatViewProps> = ({ activeSession, onSendMessage, isLoa
             ))}
             {isLoading && activeSession.messages[activeSession.messages.length - 1].sender === 'user' && (
               <div className="flex items-start gap-4 py-6">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full"><GeminiIcon className="w-8 h-8" /></div>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full"><GeminiIcon className='h5' /></div>
                   <div className="flex-grow">
                       <div className="font-bold text-neutral-200 mb-1">Gemini</div>
                       <div className="text-neutral-200 text-base leading-relaxed flex items-center gap-2">
