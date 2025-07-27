@@ -1,0 +1,5 @@
+{
+  "name": "Gemini Clone",
+  "description": "A conversational AI web application that mimics the Google Gemini interface, powered by the Google GenAI API for a seamless and interactive chat experience.",
+  "requestFramePermissions": []
+}
